@@ -6,20 +6,28 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+/****** index.html GET and POST  methods ******/
+
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/bmiCalculator.html");
+    res.sendFile(__dirname + "/index.html");
 });
 
-/* app.post("/", (req, res) => {
+app.post("/", (req, res) => {
     var num1 = Number(req.body.num1);
     var num2 = Number(req.body.num2);
 
     var result = num1 + num2;
 
     res.send("The result of the calculation is " + result);
-}); */
+});
 
-app.post("/", (req, res) => {
+/****** bmiCalculator.html GET and POST methods  ******/
+
+app.get("/bmiCalculator", (req, res) => {
+    res.sendFile(__dirname + "/bmiCalculator.html");
+})
+
+app.post("/bmiCalculator", (req, res) => {
     var height = Number(req.body.height);
     var weight = Number(req.body.weight);
 
